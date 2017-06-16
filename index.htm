@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!-- 2. The model (the data and the objects) will be connected to the view automatically. We tell angular where in the view this app lives. What part of the view is going to be controlld by this app. ng-app=myApp means everything inside that area of the dom tree (html in this code) is now connected to the myApp variable in the global namespace. Now this app has this view.-->  
+<html lang="en-us" ng-app="myApp">
+    <head>
+        <title>Introduction to AngularJS</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta charset="UTF-8">
+
+        <!-- load bootstrap and fontawesome via CDN -->
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+        <style>
+            html, body
+            {
+                font-size: 1.1em;
+            }
+        </style>
+
+        <!-- load angular via CDN -->
+        <script src="//code.angularjs.org/1.3.0-rc.1/angular.min.js"></script>
+        <script src="app.js"></script>
+    </head>
+    <body>
+
+        <header>
+			<nav class="navbar navbar-default">
+			<div class="container">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="/">AngularJS</a>
+				</div>
+
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#"><i class="fa fa-home"></i> Home</a></li>
+				</ul>
+			</div>
+			</nav>
+		</header>
+
+        <div class="container">
+        <!-- you can define a view in the html(it will be a sub part of the html) It will look for a controller in this app with the name mainController from app.js. Now any code in the myApp.controller function will be associated with controlling the html in the div below-->
+			<div ng-controller="mainController">
+
+                <h1>Hello world!</h1>
+
+            </div>
+
+		</div>
+
+    </body>
+</html>
