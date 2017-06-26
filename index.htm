@@ -38,6 +38,24 @@
         <div class="container">
         <!-- you can define a view in the html(it will be a sub part of the html) It will look for a controller in this app with the name mainController from app.js. Now any code in the myApp.controller function will be associated with controlling the html in the div below-->
 			<div ng-controller="mainController">
+                <div>
+                    <label>What is your twitter handle?</label>
+                    <input type="text" ng-model="handle" />
+                </div>
+                
+                <div class="alert" ng-class="{ 'alert-warning': handle.length < characters, 'alert-danger': handle.length > characters}" ng-show="handle.length !== characters">
+                   
+                    <div ng-show="handle.length < characters">
+                        You have less than 5 characters!
+                    </div>
+                    <div ng-show="handle.length > characters">
+                        You have more than 5 characters!
+                    </div>
+                  
+                </div>
+                
+                <hr />
+                <h1>twitter.com/{{ lowercasehandle() }}</h1> 
 
                 <h1>Hello world!</h1>
 

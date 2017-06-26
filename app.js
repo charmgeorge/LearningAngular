@@ -3,6 +3,27 @@
 var myApp = angular.module('myApp', []);
 
 // CONTROLLERS-this is the controller for the view. Within this will be the model
-myApp.controller('mainController', ['$scope', function ($scope) {
+myApp.controller('mainController', ['$scope','$filter', function ($scope, $filter) {
+    
+    $scope.handle = '';
+    
+    $scope.lowercasehandle = function(){
+        return $filter('lowercase')($scope.handle);
+    };
+    
+    $scope.characters = 5;
 
 }]);
+
+
+var Person = function(firstname, lastname){
+  this.firstname = firstname;
+  this.lastname = lastname;
+}
+
+function logPerson(){
+  var john = new Person('John', 'Doe');
+  console.log(john);
+}
+
+logPerson();
