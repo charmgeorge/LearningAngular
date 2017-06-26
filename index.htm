@@ -41,6 +41,8 @@
                 <div>
                     <label>What is your twitter handle?</label>
                     <input type="text" ng-model="handle" />
+                    <input type="button" value="Click me" ng-click="alertClick()" />
+                    <div ng-cloak> {{ name }} </div>
                 </div>
                 
                 <div class="alert" ng-class="{ 'alert-warning': handle.length < characters, 'alert-danger': handle.length > characters}" ng-show="handle.length !== characters">
@@ -56,9 +58,24 @@
                 
                 <hr />
                 <h1>twitter.com/{{ lowercasehandle() }}</h1> 
+                
+                <h3>Rules</h3>
+                <ul>
+<!--                    when looping through the array each object name is "rule" with property rulename-->
+                    <li ng-repeat="rule in rules">
+                        {{ rule.rulename }}
+                    </li>
+                </ul>
 
                 <h1>Hello world!</h1>
 
+
+            </div>
+            
+            <div ng-controller="secondController">
+                
+                <h3> {{ name }} </h3>
+            
             </div>
 
 		</div>

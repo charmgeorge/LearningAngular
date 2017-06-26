@@ -5,6 +5,13 @@ var myApp = angular.module('myApp', []);
 // CONTROLLERS-this is the controller for the view. Within this will be the model
 myApp.controller('mainController', ['$scope','$filter', function ($scope, $filter) {
     
+    $scope.alertClick = function(){
+        
+        alert("Clicked!");
+    };
+    
+    $scope.name = 'First Controller name';
+    
     $scope.handle = '';
     
     $scope.lowercasehandle = function(){
@@ -12,7 +19,23 @@ myApp.controller('mainController', ['$scope','$filter', function ($scope, $filte
     };
     
     $scope.characters = 5;
+    
+    $scope.rules = [
+        {rulename: "Must be 5 characters"},
+        {rulename: "Must not be used elsewhere"},
+        {rulename: "Must be cool"}
+    ];
+    
+    console.log($scope.rules);
+    
+    
+}]);
 
+//angular gives a new instance of the $scope object when we request it. The $scope object is unique to this specific controller. 
+myApp.controller('secondController', ['$scope', function($scope){
+    
+    $scope.name = 'Second Controller name';
+    
 }]);
 
 
